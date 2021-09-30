@@ -11,7 +11,6 @@ export default function WorldMap ({countrySelected, SetSelectedCountry}) {
     const [filteredCountries, SetFilteredCountries] = useState([]);
     const [wordEntered, SetWordEntered] = useState("");
 
-// console.log(mapData.features);
 
 // filters list of countries
 const handleFilter = (event) => {
