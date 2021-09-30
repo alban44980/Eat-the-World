@@ -1,10 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow, } from '@react-google-maps/api'
 import './RestaurantMap.css';
-// import Autocomplete from "react-google-autocomplete";
-// import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
-// import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
-// import {Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox'
 
 
 const libraries = ["places"];
@@ -14,14 +10,13 @@ const mapContainerStyle = {
     radius: "1rem",
 }
 
-// 41.3874° N, 2.1686° E
+
 
 export default function RestaurantMap ({ dishSelected }) {
 
     const [ currentPosition, setCurrentPosition ] = useState({});
     const [restaurantSuggestions, SetRestaurantSuggestions] = useState([]);
     const [selected, setSelected] = useState(null);
-    // console.log("SUGGESTIONS FOR DA MAP: ", restaurantSuggestions);
   
     const success = position => {
     const currentPosition = {
@@ -29,7 +24,6 @@ export default function RestaurantMap ({ dishSelected }) {
       lng: position.coords.longitude
     }
     setCurrentPosition(currentPosition)
-    // console.log(currentPosition);;
   };
   
   useEffect(() => {
@@ -54,7 +48,6 @@ export default function RestaurantMap ({ dishSelected }) {
 
       useEffect( () => { getRestaurants() },[]);
 
-      // Get's restaurant data for map feature
       function getRestaurants () {
         fetch("http://localhost:3002/restaurants", {
           method:"POST",
@@ -69,21 +62,6 @@ export default function RestaurantMap ({ dishSelected }) {
 
 
 
-    // const getLocation = () => {
-    //     // console.log(navigator.geolocation);
-    //     if (!navigator.geolocation) {
-    //       setStatus('Geolocation is not supported by your browser');
-    //     } else {
-    //       setStatus('Locating...');
-    //       navigator.geolocation.getCurrentPosition((position) => {
-    //         setStatus(null);
-    //         setLat(position.coords.latitude);
-    //         setLng(position.coords.longitude);
-    //       }, () => {
-    //         setStatus('Unable to retrieve your location');
-    //       });
-    //     }
-    //   }
 
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -92,11 +70,6 @@ export default function RestaurantMap ({ dishSelected }) {
 
     if (loadError) return "Error loading maps";
     if (!isLoaded) return "Loading Maps";
-
-    // const center = {
-    //     lat: 41.38,
-    //     lng: 2.16,
-    // }
 
 
     return (
