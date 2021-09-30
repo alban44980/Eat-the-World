@@ -1,12 +1,5 @@
-html {
-  box-sizing: border-box;
-}
 
 
-body {
-  background-image: url("./data/phone-background.jpeg");
-  opacity:0.9;
-}
 .topbar {
   /* background-color:burlywood; */
   background-color: rgb(241, 166, 153);
@@ -23,7 +16,9 @@ body {
   top:0;
   height: 30;
 }
-
-.page-container {
-  margin-top: 10%;
+.svgStyle {
+  width: 24;
+  height: 24;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
 }
