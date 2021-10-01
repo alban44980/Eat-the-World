@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Dish.css';
 import Navbar from './Navbar';
 import RestaurantMap from './RestaurantMap';
+import ApiService from '../ApiService';
 
 export default function CountryPage({
   dishSelected,
@@ -15,7 +16,7 @@ export default function CountryPage({
     getDishImage();
   }, []);
   useEffect(async () => {
-    const info = await getDishInfo();
+    const info = await ApiService.getDishInfo(dishSelected);
     console.log(info.imgLink);
     setDishInfo(info.imgLink.slice().replace(/(<([^>]+)>)/gi, ''));
   }, []);
@@ -30,21 +31,21 @@ export default function CountryPage({
       .then((res) => setDishImg(res.imgLink));
   }
 
-  function getDishInfo() {
-    return (
-      fetch('http://localhost:3002/info', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ dish: dishSelected }),
-      })
-        .then((res) => res.json())
-        // .then((data) => console.log(data))
-        // .then((res) =>
-        // setDishInfo(res.imgLink.slice().replace(/(<([^>]+)>)/gi, ''))
-        // )
-        .catch((err) => console.log(err))
-    );
-  }
+  // function getDishInfo() {
+  //   return (
+  //     fetch('http://localhost:3002/info', {
+  //       method: 'POST',
+  //       headers: { 'content-type': 'application/json' },
+  //       body: JSON.stringify({ dish: dishSelected }),
+  //     })
+  //       .then((res) => res.json())
+  //       // .then((data) => console.log(data))
+  //       // .then((res) =>
+  //       // setDishInfo(res.imgLink.slice().replace(/(<([^>]+)>)/gi, ''))
+  //       // )
+  //       .catch((err) => console.log(err))
+  //   );
+  // }
 
   return (
     <div className="dish-main">
