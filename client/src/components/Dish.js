@@ -14,8 +14,10 @@ export default function CountryPage({
   useEffect(() => {
     getDishImage();
   }, []);
-  useEffect(() => {
-    getDishInfo();
+  useEffect(async () => {
+    const info = await getDishInfo();
+    console.log(info.imgLink);
+    setDishInfo(info.imgLink.slice().replace(/(<([^>]+)>)/gi, ''));
   }, []);
 
   function getDishImage() {
@@ -29,16 +31,19 @@ export default function CountryPage({
   }
 
   function getDishInfo() {
-    fetch('http://localhost:3002/info', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ dish: dishSelected }),
-    })
-      .then((res) => res.json())
-      .then((res) =>
-        setDishInfo(res.imgLink.slice().replace(/(<([^>]+)>)/gi, ''))
-      )
-      .catch((err) => console.log(err));
+    return (
+      fetch('http://localhost:3002/info', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ dish: dishSelected }),
+      })
+        .then((res) => res.json())
+        // .then((data) => console.log(data))
+        // .then((res) =>
+        // setDishInfo(res.imgLink.slice().replace(/(<([^>]+)>)/gi, ''))
+        // )
+        .catch((err) => console.log(err))
+    );
   }
 
   return (
