@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import RestaurantMap from './RestaurantMap';
 import apiService from '../ApiService';
 
-export default function CountryPage({
+export default function Dish({
   dishSelected,
   favorites,
   updateFavorites,
