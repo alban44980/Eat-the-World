@@ -12,43 +12,12 @@ export default function CountryPage({
   const [dishImg, setDishImg] = useState('');
   const [dishInfo, setDishInfo] = useState('');
 
-  // useEffect(() => {
-  //   getDishImage();
-  // }, []);
-
   useEffect(async () => {
     const info = await apiService.getDishInfo(dishSelected);
-    // console.log('info => ', info);
     const image = await apiService.getDishImage(dishSelected);
     setDishInfo(info.imgLink.slice().replace(/(<([^>]+)>)/gi, ''));
     setDishImg(image);
   }, []);
-
-  // function getDishImage() {
-  //   fetch('http://localhost:3002/image', {
-  //     method: 'POST',
-  //     headers: { 'content-type': 'application/json' },
-  //     body: JSON.stringify({ dish: dishSelected }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => setDishImg(res.imgLink));
-  // }
-
-  // function getDishInfo() {
-  //   return (
-  //     fetch('http://localhost:3002/info', {
-  //       method: 'POST',
-  //       headers: { 'content-type': 'application/json' },
-  //       body: JSON.stringify({ dish: dishSelected }),
-  //     })
-  //       .then((res) => res.json())
-  //       // .then((data) => console.log(data))
-  //       // .then((res) =>
-  //       // setDishInfo(res.imgLink.slice().replace(/(<([^>]+)>)/gi, ''))
-  //       // )
-  //       .catch((err) => console.log(err))
-  //   );
-  // }
 
   return (
     <div className="dish-main">
