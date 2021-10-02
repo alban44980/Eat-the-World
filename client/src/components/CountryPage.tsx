@@ -1,7 +1,7 @@
 import React from 'react';
 import './CountryPage.css';
 import { useHistory } from 'react-router-dom';
-import foodData from './../data/food.json';
+import foodData from '../data/food.json';
 import Navbar from './Navbar';
 
 export default function CountryPage({
@@ -9,10 +9,15 @@ export default function CountryPage({
   SetSelectedDish,
   updateFavorites,
   favorites,
+}: {
+  countrySelected: string;
+  SetSelectedDish: React.Dispatch<React.SetStateAction<string>>;
+  updateFavorites: any; // Anything else than any ??
+  favorites: string[];
 }) {
-  const onDishClick = (event) => {
-    const dishElement = event.target.outerText;
-    SetSelectedDish(dishElement);
+  const onDishClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const dishElementValue: string = event.currentTarget.value;
+    SetSelectedDish(dishElementValue);
   };
 
   const history = useHistory();
@@ -28,7 +33,7 @@ export default function CountryPage({
             return val.dish.map((dish) => {
               return (
                 <div className="dish-item-container">
-                  <div className="dish-item" onClick={onDishClick}>
+                  <div className="dish-item" onClick={() => onDishClick}>
                     <div
                       className="food"
                       onClick={() => history.push('/dishinfo')}

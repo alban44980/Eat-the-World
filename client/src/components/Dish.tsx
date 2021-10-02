@@ -2,53 +2,34 @@ import React, { useState, useEffect } from 'react';
 import './Dish.css';
 import Navbar from './Navbar';
 import RestaurantMap from './RestaurantMap';
-import apiService from '../ApiService';
+import { getDishImage, getDishInfo } from '../ApiService';
+import { DishInfo } from '../ApiService';
+
+//interface or type declaration
+
+type Props = {
+  dishSelected: string;
+  favorites: string[];
+  updateFavorites: (fav: string) => void;
+};
 
 export default function Dish({
   dishSelected,
   favorites,
   updateFavorites,
-}) {
-  const [dishImg, setDishImg] = useState('');
-  const [dishInfo, setDishInfo] = useState('');
+}: Props) {
+  const [dishImg, setDishImg] = useState<string>('');
+  const [dishInfo, setDishInfo] = useState<string>('');
 
-  // useEffect(() => {
-  //   getDishImage();
-  // }, []);
-
-  useEffect(async () => {
-    const info = await apiService.getDishInfo(dishSelected);
-    // console.log('info => ', info);
-    const image = await apiService.getDishImage(dishSelected);
-    setDishInfo(info.imgLink.slice().replace(/(<([^>]+)>)/gi, ''));
-    setDishImg(image);
-  }, []);
-
-  // function getDishImage() {
-  //   fetch('http://localhost:3002/image', {
-  //     method: 'POST',
-  //     headers: { 'content-type': 'application/json' },
-  //     body: JSON.stringify({ dish: dishSelected }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => setDishImg(res.imgLink));
-  // }
-
-  // function getDishInfo() {
-  //   return (
-  //     fetch('http://localhost:3002/info', {
-  //       method: 'POST',
-  //       headers: { 'content-type': 'application/json' },
-  //       body: JSON.stringify({ dish: dishSelected }),
-  //     })
-  //       .then((res) => res.json())
-  //       // .then((data) => console.log(data))
-  //       // .then((res) =>
-  //       // setDishInfo(res.imgLink.slice().replace(/(<([^>]+)>)/gi, ''))
-  //       // )
-  //       .catch((err) => console.log(err))
-  //   );
-  // }
+  useEffect(() => {
+    async function fetchFunc() {
+      const info: DishInfo = await getDishInfo(dishSelected);
+      const image: DishInfo = await getDishImage(dishSelected);
+      setDishInfo(info.imgLink.slice().replace(/(<([^>]+)>)/gi, ''));
+      setDishImg(image.imgLink);
+    }
+    fetchFunc();
+  }, [dishSelected]);
 
   return (
     <div className="dish-main">

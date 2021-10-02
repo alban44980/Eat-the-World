@@ -1,8 +1,14 @@
 // const BASE_URL = 'http://localhost:3002';
 
-const apiService = {};
+// const apiService = {};
 
-apiService.getDishImage = (dish) => {
+//create type for ImgLink
+
+export class DishInfo {
+  'imgLink': string;
+}
+
+const getDishImage = (dish: string): Promise<DishInfo> => {
   return fetch('http://localhost:3002/image', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
@@ -12,7 +18,7 @@ apiService.getDishImage = (dish) => {
     .catch((err) => console.log(err));
 };
 
-apiService.getDishInfo = (dishSelected) => {
+const getDishInfo = (dishSelected: string): Promise<DishInfo> => {
   return fetch('http://localhost:3002/info', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
@@ -22,4 +28,4 @@ apiService.getDishInfo = (dishSelected) => {
     .catch((err) => console.log(err));
 };
 
-export default apiService;
+export { getDishImage, getDishInfo };
