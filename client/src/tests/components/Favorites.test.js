@@ -4,11 +4,6 @@ import userEvent from '@testing-library/user-event'
 import {BrowserRouter} from 'react-router-dom'
 
 
-// Write a test to make sure the correct dish is 
-// set as the selected dish on clicking the 
-
-
-
 
 it('should call onDishClick with the correct input', () => {
   const SetSelectedDish = jest.fn()
@@ -28,16 +23,10 @@ it('should call onDishClick with the correct input', () => {
   // click on button
   fireEvent.click(screen.getByTestId('DishSelectButton'))
 
-  // check if setSelectedDish
+  // check if setSelectedDish was called
   expect(SetSelectedDish.mock.calls.length).toBe(1);
 
 })
-
-
-// const onDishClick = (event) => {
-//   const dishElement = event.target.outerText;
-//   SetSelectedDish(dishElement);
-// };
 
 
 
