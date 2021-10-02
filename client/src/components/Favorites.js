@@ -8,15 +8,10 @@ export default function Favorites({
   SetSelectedDish,
   updateFavorites,
 }) {
-
-
   const onDishClick = (event) => {
     const dishElement = event.target.outerText;
     SetSelectedDish(dishElement);
   };
-
-
-
 
   const history = useHistory();
 
@@ -29,7 +24,11 @@ export default function Favorites({
           {favorites.map((fav) => {
             return (
               <div className="link" key={fav}>
-                <div className="dish-item" data-testid='DishSelectButton' onClick={onDishClick}>
+                <div
+                  className="dish-item"
+                  data-testid="DishSelectButton"
+                  onClick={onDishClick}
+                >
                   <div
                     className="food"
                     onClick={() => history.push('/dishinfo')}
