@@ -2,22 +2,34 @@ import React, { useState, useEffect } from 'react';
 import './Dish.css';
 import Navbar from './Navbar';
 import RestaurantMap from './RestaurantMap';
-import apiService from '../ApiService';
+import { getDishImage, getDishInfo } from '../ApiService';
+import { DishInfo } from '../ApiService';
 
-export default function CountryPage({
+//interface or type declaration
+
+type Props = {
+  dishSelected: string;
+  favorites: string[];
+  updateFavorites: (fav: string) => void;
+};
+
+export default function Dish({
   dishSelected,
   favorites,
   updateFavorites,
-}) {
-  const [dishImg, setDishImg] = useState('');
-  const [dishInfo, setDishInfo] = useState('');
+}: Props) {
+  const [dishImg, setDishImg] = useState<string>('');
+  const [dishInfo, setDishInfo] = useState<string>('');
 
-  useEffect(async () => {
-    const info = await apiService.getDishInfo(dishSelected);
-    const image = await apiService.getDishImage(dishSelected);
-    setDishInfo(info.imgLink.slice().replace(/(<([^>]+)>)/gi, ''));
-    setDishImg(image);
-  }, []);
+  useEffect(() => {
+    async function fetchFunc() {
+      const info: DishInfo = await getDishInfo(dishSelected);
+      const image: DishInfo = await getDishImage(dishSelected);
+      setDishInfo(info.imgLink.slice().replace(/(<([^>]+)>)/gi, ''));
+      setDishImg(image.imgLink);
+    }
+    fetchFunc();
+  }, [dishSelected]);
 
   return (
     <div className="dish-main">

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import WorldMap from './components/WorldMap.js';
 import CountryPage from './components/CountryPage';
-import Dish from './components/Dish.js';
+import Dish from './components/Dish';
 import Favorites from './components/Favorites';
 import TopBar from './components/TopBar/TopBar';
 
@@ -47,17 +47,13 @@ function App() {
           <Route path="/dishinfo">
             <Dish
               dishSelected={dishSelected}
-              SetSelectedDish={SetSelectedDish}
               favorites={favorites}
-              SetFavorites={SetFavorites}
               updateFavorites={updateFavorites}
-              countrySelected={countrySelected}
             />
           </Route>
           <Route path="/favorites">
             <Favorites
               favorites={favorites}
-              SetFavorites={SetFavorites}
               updateFavorites={updateFavorites}
               SetSelectedDish={SetSelectedDish}
             />
