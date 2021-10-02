@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import WorldMap from './components/WorldMap.js';
+import WorldMap from './components/WorldMap';
 import CountryPage from './components/CountryPage';
 import Dish from './components/Dish';
 import Favorites from './components/Favorites';
