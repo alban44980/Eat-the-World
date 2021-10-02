@@ -3,7 +3,7 @@ import './Dish.css';
 import Navbar from './Navbar';
 import RestaurantMap from './RestaurantMap';
 
-export default function CountryPage({
+export default function Dish({
   dishSelected,
   favorites,
   updateFavorites,

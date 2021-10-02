@@ -47,5 +47,8 @@
     "whitelist": [
       "REACT_APP_GOOGLE_MAPS_API_KEY"
     ]
+  },
+  "devDependencies": {
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3"
   }
 }

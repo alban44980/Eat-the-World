@@ -22,12 +22,36 @@ const handleFilter = (event) => {
     SetFilteredCountries(newFilter);
 }
 
-// select a random country 
-const randomCountry = () => {
-    const featuresArray = mapData.features;
-    const randomIndex = Math.floor(Math.random() * featuresArray.length);
-    SetSelectedCountry(featuresArray[randomIndex].properties.ADMIN);
+
+
+
+
+// const randomCountry = () => {
+//     const featuresArray = mapData.features;
+//     const randomIndex = Math.floor(Math.random() * featuresArray.length);
+//     SetSelectedCountry(featuresArray[randomIndex].properties.ADMIN);
+// }
+
+const assignRandomCountry = (array) => {
+    const index = randomArrayIndex(array)
+    assignCountry(array, index)
 }
+
+const randomArrayIndex = (array) => {
+    return Math.floor(Math.random() * array.length)
+}
+
+const assignCountry = (array, index) => {
+    const country = array[index].properties.ADMIN
+    SetSelectedCountry(country);
+    const output = countrySelected
+    return output
+}
+
+
+
+
+
 
 const clearSearchInput = () => {
     SetWordEntered('');
@@ -107,7 +131,15 @@ const history = useHistory();
                     </div>
 
                     <div>
-                        <button className="random-button" onClick={() => {randomCountry();clearSearchInput();SetFilteredCountries([]);}} >Random!</button>
+                        <button 
+                            className="random-button" 
+                            onClick={() => {
+                                assignRandomCountry(mapData.features); 
+                                clearSearchInput();
+                                SetFilteredCountries([]);
+                            }} 
+                            > Random!
+                        </button>
                     </div>
 
                     <Link to="/countrypage" className="view-button">
