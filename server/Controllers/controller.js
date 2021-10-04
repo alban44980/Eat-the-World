@@ -4,6 +4,28 @@ const env = require('../config');
 
 
 
+
+exports.getCountryData = async (req, res) => {
+  try { 
+    const countries = await db.Country.findAll()
+
+    for (let country of countries) {
+      
+       country.properties = await JSON.parse(country.properties)
+       country.geometry = await JSON.parse(country.geometry)
+    }
+    console.log(countries)
+    res.send(countries)
+  }
+  catch(err) {}
+}
+
+
+
+
+
+
+
 exports.getFoodImage = async (req, res) => {
   try {
     const dish = req.body.dish;  
