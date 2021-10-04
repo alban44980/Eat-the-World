@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './WorldMap.css';
-import mapData from '../data/countries.json';
+// import mapData from '../data/countries.json';
 import { MapContainer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Link, useHistory } from 'react-router-dom';
 import Navbar from './Navbar';
 import { StringMappingType } from 'typescript';
+import * as API from '../ApiService'
 
 //Type for data ==> GeoJson.FeatureCollection
 
-const data: any = mapData;
+// const data: any = mapData;
 
 export default function WorldMap({
   countrySelected,
@@ -18,6 +19,19 @@ export default function WorldMap({
   countrySelected: string;
   SetSelectedCountry: React.Dispatch<React.SetStateAction<string>>;
 }) {
+
+  useEffect(() => {
+    API.getCountryData()
+    .then(data => {
+      console.log(data);
+      setData(data)
+    })
+    
+    
+  }, [])
+
+  const [data, setData] = useState<any>([])
+
   const [filteredCountries, SetFilteredCountries] = useState<string[]>([]);
   const [wordEntered, SetWordEntered] = useState<string>('');
 
