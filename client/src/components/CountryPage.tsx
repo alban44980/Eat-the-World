@@ -15,9 +15,12 @@ export default function CountryPage({
   updateFavorites: (fav: string) => void;
   favorites: string[];
 }) {
-  const onDishClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const dishElementValue: string = event.currentTarget.value;
-    SetSelectedDish(dishElementValue);
+  //React.MouseEvent<HTMLButtonElement>
+  const onDishClick = (dish: string) => {
+    console.log('HELLO');
+    // const dishElementValue: string = event.currentTarget.value;
+    // console.log('dishElementValue ==> :', dishElementValue);
+    SetSelectedDish(dish);
   };
 
   const history = useHistory();
@@ -33,7 +36,7 @@ export default function CountryPage({
             return val.dish.map((dish) => {
               return (
                 <div className="dish-item-container">
-                  <div className="dish-item" onClick={() => onDishClick}>
+                  <div className="dish-item" onClick={() => onDishClick(dish)}>
                     <div
                       className="food"
                       onClick={() => history.push('/dishinfo')}
