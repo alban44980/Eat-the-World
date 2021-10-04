@@ -40,21 +40,6 @@ export default function WorldMap({
     SetSelectedCountry(featuresArray[randomIndex].properties.ADMIN);
   };
 
-  // const assignRandomCountry = (array) => {
-  //   const index = randomArrayIndex(array);
-  //   assignCountry(array, index);
-  // };
-
-  // const randomArrayIndex = (array) => {
-  //   return Math.floor(Math.random() * array.length);
-  // };
-
-  // const assignCountry = (array, index) => {
-  //   const country = array[index].properties.ADMIN;
-  //   SetSelectedCountry(country);
-  //   const output = countrySelected;
-  //   return output;
-  // };
 
   const clearSearchInput = () => {
     SetWordEntered('');

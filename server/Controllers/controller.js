@@ -1,6 +1,8 @@
-
+const db = require('../Models/index')
 const axios = require('axios');
-const env = require('./config');
+const env = require('../config');
+
+
 
 exports.getFoodImage = async (req, res) => {
   try {
@@ -9,12 +11,17 @@ exports.getFoodImage = async (req, res) => {
     const imgObj = imgUrl.data.query.pages;
     const imgLink = Object.values(imgObj)[0].original.source;
 
-    res.status(200).send({ imgLink });
+
+    // res.status(200).send({ imgLink });
+    const countries = await db.Country.findAll()
+    res.send(countries)
     res.end();
+
   } catch (error) {
     res.status(500).send(error); 
   }
 };
+
 
 
 exports.getFoodInfo = async (req, res) => {
