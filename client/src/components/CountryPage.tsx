@@ -12,7 +12,7 @@ export default function CountryPage({
 }: {
   countrySelected: string;
   SetSelectedDish: React.Dispatch<React.SetStateAction<string>>;
-  updateFavorites: React.Dispatch<React.SetStateAction<string>>; // Anything else than any ??
+  updateFavorites: (fav: string) => void;
   favorites: string[];
 }) {
   const onDishClick = (event: React.MouseEvent<HTMLButtonElement>) => {

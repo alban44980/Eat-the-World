@@ -1,9 +1,7 @@
-
-import WorldMap from "../../components/WorldMap";
-import { render, screen } from '@testing-library/react'
+import WorldMap from '../../components/WorldMap';
+import { render, screen } from '@testing-library/react';
 import assignCountry from '../../data/countries.json';
-import * as mapData from '../../data/countries.json'
-
+import * as mapData from '../../data/countries.json';
 
 /*
 const assignRandomCountry = (array) => {
@@ -21,11 +19,6 @@ const assignCountry = (array, index) => {
     console.log(country)
 }
 */
-
-
-test('example', () => {
-  expect(false).toBe(false)
-})
 
 // describe('assign country sets the expected country', () => {
 //     test('called with array mapData.features and index 0 returns Aruba', () => {

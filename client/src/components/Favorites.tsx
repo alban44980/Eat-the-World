@@ -10,7 +10,7 @@ export default function Favorites({
 }: {
   favorites: string[];
   SetSelectedDish: React.Dispatch<React.SetStateAction<string>>;
-  updateFavorites: React.Dispatch<React.SetStateAction<string>>;
+  updateFavorites: (fav: string) => void;
 }) {
   const onDishClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const dishElement: string = event.currentTarget.value;
@@ -32,7 +32,7 @@ export default function Favorites({
                   className="dish-item"
                   data-testid="DishSelectButton"
                   onClick={() => {
-                    onDishClick;
+                    return onDishClick;
                   }}
                 >
                   <div
