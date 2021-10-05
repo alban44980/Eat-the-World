@@ -1,25 +1,49 @@
+@import "./../../util/colors.css";
+
+
+
 html {
     box-sizing: border-box;
   }
 
-.nav-bar {
-    display: flex;
-    align-items:center;
-    justify-content: space-between;
-    position:fixed;
-    bottom:0;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    /* background-color:burlywood; */
-    background-color: rgb(241, 166, 153);
+  .nav-bar-container {
     width: 100vw;
-    z-index:15;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 10px;
+  }
+
+.nav-bar {
+    width: 85%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--accent-dark);
+    z-index: 15;
+    border-radius: 15px;
 }
 
-.food {
-    padding-right: 1rem;
-}
+.iconContainer {
+    height: 37px;
+    display: flex;
+    width: 37px;
+    background-color: var(--background-light);
+    padding: 5px;
+    border-radius: 25%;
+    border: solid;
+    border-width: 1px;
+    align-items: center;
+    justify-content: center;
+  }
 
-.home {
-    padding-left: 1rem;
-}
+.icon {
+    height: 25px;
+    width: 25px;
+    border-radius: 25%;
+    border: solid;
+    border-width: 1px;
+  }
+

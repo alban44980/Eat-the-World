@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './WorldMap.css';
-// import mapData from '../data/countries.json';
 import { MapContainer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Link, useHistory } from 'react-router-dom';
@@ -8,17 +7,9 @@ import Navbar from './../NavBar/Navbar';
 import { StringMappingType } from 'typescript';
 import * as API from '../../ApiService';
 
-//Type for data ==> GeoJson.FeatureCollection
 
-// const data: any = mapData;
-
-export default function WorldMap({
-  countrySelected,
-  SetSelectedCountry,
-}: {
-  countrySelected: string;
-  SetSelectedCountry: React.Dispatch<React.SetStateAction<string>>;
-}) {
+export default function WorldMap({ countrySelected, SetSelectedCountry,}: {countrySelected: string; SetSelectedCountry: React.Dispatch<React.SetStateAction<string>>;}) {
+  
   useEffect(() => {
     API.getCountryData().then((data) => {
       console.log('FROM USE EFFECT: ', data);
@@ -27,15 +18,12 @@ export default function WorldMap({
   }, []);
 
   const [data, setData] = useState<any>([]);
-
   const [filteredCountries, SetFilteredCountries] = useState<string[]>([]);
   const [wordEntered, SetWordEntered] = useState<string>('');
 
-  // filters list of countries
   const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchInput: string = event.target.value;
     SetWordEntered(searchInput);
-    //Come back to the filter type down there
     const newFilter: string[] = data.filter((value: any) => {
       return value.properties.ADMIN.toLowerCase().includes(
         searchInput.toLowerCase()
@@ -67,26 +55,20 @@ export default function WorldMap({
     weight: 0.5,
   };
 
-  // when a country is clicked, change the colour
   const onCountryClick = (event: any) => {
     event.target.setStyle({ fillColor: 'blue' });
   };
 
-  // list selected country
   const writeCountryName = (event: any) => {
     SetSelectedCountry(event.target.feature.properties.ADMIN);
   };
 
-  // Pop up produced following every country click with it's info
   const onEachCountry = (country: any, layer: any) => {
     const countryName = country.properties.ADMIN;
-    //pop-up country name when clicked
     layer.bindPopup(countryName);
-    // change country color to blue when clicked
     layer.on({
       click: onCountryClick,
     });
-    // list selected country
     layer.on({
       click: writeCountryName,
     });
@@ -95,32 +77,37 @@ export default function WorldMap({
   const history = useHistory();
 
   return (
+
     <div className="home-container">
-      <h1>Eat the World</h1>
-      <div className="map-search-container">
-        <h2 className="instructions">Select a country and view their food</h2>
+      <div className="titleContainer">
+          <h1 className="title">Eat the World</h1>
+      </div>
+      <div className="map-container">
+          {data.length ? (
+            <MapContainer zoom={1.5} center={[41.38, 2.16]}>
+              <GeoJSON
+                style={countryStyle}
+                data={data}
+                onEachFeature={onEachCountry}
+              />
+            </MapContainer>
+          ) : (
+            <p>LOADING</p>
+          )}
+      </div>
 
-        {data.length ? (
-          <MapContainer zoom={1.5} center={[41.38, 2.16]}>
-            <GeoJSON
-              style={countryStyle}
-              data={data}
-              onEachFeature={onEachCountry}
-            />
-          </MapContainer>
-        ) : (
-          <p>LOADING</p>
-        )}
 
-        <div
-          onClick={() => history.push('/countrypage')}
-          className="select-country"
-        >
-          <h2 className="select-country">{countrySelected + '!'}</h2>
+
+      <div className="search-buttons-container">
+        <div onClick={() => history.push('/countrypage')} className="select-country" >
+            <h2 className="select-country-text"> {countrySelected} </h2>
         </div>
 
-        <div className="buttons">
+
+
+        <div className="search-container">
           <div className="search">
+
             <div className="searchInputs">
               <input
                 className="search-box"
@@ -149,29 +136,35 @@ export default function WorldMap({
                 })}
               </div>
             )}
+
           </div>
 
-          <div>
-            <button
-              className="random-button"
-              onClick={() => {
-                randomCountry();
-                clearSearchInput();
-                SetFilteredCountries([]);
-              }}
-            >
-              {' '}
-              Random!
-            </button>
-          </div>
-
-          <Link to="/countrypage" className="view-button">
-            <button className="view-button">View Their Food!</button>
+          <Link to="/countrypage" className="view-button-container">
+            <div className="view-button">
+              <p className="button-label">View Food</p>
+            </div>
           </Link>
+
         </div>
+
+        <div>
+          <button
+            className="random-button"
+            onClick={() => {
+              randomCountry();
+              clearSearchInput();
+              SetFilteredCountries([]);
+            }}
+          >
+            {' '}
+            Random!
+          </button>
+        </div>
+
+
       </div>
 
-      <Navbar />
+
     </div>
   );
 }

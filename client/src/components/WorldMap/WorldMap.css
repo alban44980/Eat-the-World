@@ -1,59 +1,155 @@
+@import "./../../util/colors.css";
+
+
+
+
+
 html {
     box-sizing: border-box;
-  }
+}
 
-h1 {
-    text-align: center;
-    margin:0;
-    background-color: white;
-    opacity:0.8;
-    width:80vw;
-    border-radius: 1rem;
-    margin-top: 1rem;
+
+.home-container {
+    height: 100vh;
+    width: 100vw;   
+    display: flex;
+    position: fixed;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: ; */
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.titleContainer {
+    height: 70px;
+    width: 85vw;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent-dark);
+    border-color: black;
+    border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.title {
+    font-size: 30px;
+    color: white;
+}
+
+.map-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height: 220px;
+    width: 85vw;
+    border-color: black;
+    border-width: 1.5px;
+    border-radius: 10px;
+    border-style: solid;
+    background-color: var(--accent-dark);
+    justify-content: center;
+    align-content: center;
 }
 
 .leaflet-container {
     display:flex;
     justify-content: center;
-    background-color:white;
-    border-radius: 2rem;
+    background-color:black;
+    border-radius: 12px;
     padding: 0.1%;
-    width: 90vw;
-    height:50vh;
-    height:45vh;
+    width: 93%;
+    height: 90%;
 }
 
-.map-search-container {
-    display:flex;
+
+
+.search-buttons-container {
+    margin-top: 25px;
+    height: 170px;
+    width: 85vw;
+    border-color: black;
+    border-width: 1.5px;
+    border-radius: 10px;
+    border-style: solid;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.instructions {
-    text-align: center;
-}
-
-.buttons {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 5vh;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 80vw;
+    align-items: center;
+    background-color: var(--accent-dark);
+    padding-bottom: 20px;
+}
+
+
+.select-country {
+    width: 85vw;
+    height: 40px;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.select-country-text {
+    font-size: 15;
+    align-self: flex-start;
+    height: 25px;
+    width: 100%;
+    color: white;
+}
+
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.search-box {
+    border-radius: 1rem;
+    height: 100%;
+    width: 180px;
+    padding:0.5rem;
+    box-shadow: 4px 4px 6px 0 rgba(216, 13, 13, 0.3),
+    -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.view-button-container {
+    width: 75px;
+    height: 40px;
+    background-color: var(--accent-bright);
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    display: flex;
+    text-decoration: none;
+    margin-left: 10px;
+
+
 }
 
 .view-button {
-    display:flex;
-    width: 80vw;
-    border-radius: 1rem;
-    padding:0.5rem;
-    align-self: center;
-    justify-content: center;
-    font-size: medium;
-    font-weight:bold;
+    display: flex;
     text-decoration: none;
+    text-align: center;
 }
+
+.button-label {
+    font-size: 11px;
+    text-decoration: none;
+    align-self: center;
+}
+
 
 .random-button {
     margin-top: 0.5rem;
@@ -62,6 +158,8 @@ h1 {
     padding:0.5rem;
     font-size: medium;
     font-weight:bold;
+    background-color: var(--accent-bright);
+
 }
 
 .countryResult {
@@ -83,32 +181,8 @@ h1 {
     display: none; 
 }
 
-.search-box {
-    border-radius: 1rem;
-    width: 60vw;
-    padding:0.5rem;
-    box-shadow: 4px 4px 6px 0 rgba(216, 13, 13, 0.3),
-    -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-inset -4px -4px 6px 0 rgba(255,255,255,.2),
-inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
-}
 
-.select-country {
-    width: 90vw;
-    text-align: center;
-}
 
-h2 {
-    background-color: white;
-    opacity:0.8;
-    width:80vw;
-    border-radius: 1rem;
-}
 
-.home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 

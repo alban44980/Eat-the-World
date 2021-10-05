@@ -104,7 +104,6 @@ export default function Dish({
         </div>
       </div>
 
-      <Navbar />
     </div>
   );
 }

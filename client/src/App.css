@@ -1,29 +1,25 @@
+@import "./util/colors.css";
+
+
+
+
 html {
   box-sizing: border-box;
 }
 
 
-body {
+.fullpage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.image-container {
   background-image: url("./data/phone-background.jpeg");
-  opacity:0.9;
-}
-.topbar {
-  /* background-color:burlywood; */
-  background-color: rgb(241, 166, 153);
-  padding: 0.5rem;
-  display:flex;
-  justify-content: space-evenly;  
-  height: 30!
-}
-
-.topbar-container {
-  position:fixed;
-  width:100%;
-  z-index: 10;
-  top:0;
-  height: 30;
-}
-
-.page-container {
-  margin-top: 10%;
+  opacity: .75;
+  height: 100vh;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  z-index: -1;
 }

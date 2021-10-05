@@ -14,7 +14,6 @@ exports.getCountryData = async (req, res) => {
        country.properties = await JSON.parse(country.properties)
        country.geometry = await JSON.parse(country.geometry)
     }
-    console.log(countries)
     res.send(countries)
   }
   catch(err) {}

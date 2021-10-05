@@ -1,0 +1,22 @@
+
+
+
+/* colors {
+  --orange: rgba(255, 136, 136, 1);
+  --chick-yellow: rgba(232, 230, 135, 1);
+  --turquoise: rgba(55, 232, 166, 1);
+  --red:  rgba(224, 92, 109, 1);
+  --greenish:  rgba(186, 232, 172, 1);
+  --blue:  rgba(41, 120, 232, 1);
+} */
+
+
+:root {
+  --background-light: rgba(255, 136, 136, 1);
+  --background-dark:  rgba(224, 92, 109, 1);
+  --accent-bright: rgba(232, 230, 135, 1);
+  --accent-dark: rgb(131, 24, 24);
+  --accent-neutral:  rgba(230, 230, 230, 1);
+  /* --blue:  rgba(41, 120, 232, 1); */
+}
+

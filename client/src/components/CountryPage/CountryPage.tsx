@@ -27,8 +27,13 @@ export default function CountryPage({
 
   return (
     <div className="country-page-container">
-      <h1>{countrySelected}</h1>
-      <h2>Local delicacies in {countrySelected}:</h2>
+
+      <div className="header-container">
+        <div className="page-title">{countrySelected}</div>
+        <div className="description-text" >Local delicacies in {countrySelected}:</div>
+      </div>
+
+
 
       <div className="dish-list">
         {foodData.map((val) => {
@@ -86,7 +91,6 @@ export default function CountryPage({
         })}
       </div>
 
-      <Navbar />
     </div>
   );
 }

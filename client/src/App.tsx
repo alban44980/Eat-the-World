@@ -6,10 +6,13 @@ import CountryPage from './components/CountryPage/CountryPage';
 import Dish from './components/Dish/Dish';
 import Favorites from './components/Favorites/Favorites';
 import TopBar from './components/TopBar/TopBar';
+import { Backdrop } from '@material-ui/core';
+import Navbar from './components/NavBar/Navbar';
+
 
 function App() {
   const [countrySelected, SetSelectedCountry] =
-    useState<string>('Select or Search');
+    useState<string>('');
   const [dishSelected, SetSelectedDish] = useState<string>('');
   const [favorites, SetFavorites] = useState<string[]>([
     'Fish and chips',
@@ -26,40 +29,48 @@ function App() {
 
   return (
     <Router>
-      <TopBar></TopBar>
+        <div className="fullpage">
 
-      <div className="page-container">
-        <Switch>
-          <Route exact path="/">
-            <WorldMap
-              countrySelected={countrySelected}
-              SetSelectedCountry={SetSelectedCountry}
-            />
-          </Route>
-          <Route path="/countrypage">
-            <CountryPage
-              countrySelected={countrySelected}
-              SetSelectedDish={SetSelectedDish}
-              favorites={favorites}
-              updateFavorites={updateFavorites}
-            />
-          </Route>
-          <Route path="/dishinfo">
-            <Dish
-              dishSelected={dishSelected}
-              favorites={favorites}
-              updateFavorites={updateFavorites}
-            />
-          </Route>
-          <Route path="/favorites">
-            <Favorites
-              favorites={favorites}
-              updateFavorites={updateFavorites}
-              SetSelectedDish={SetSelectedDish}
-            />
-          </Route>
-        </Switch>
-      </div>
+          <div className="image-container" />
+
+          <Switch>
+            <Route exact path="/">
+              <WorldMap 
+                countrySelected={countrySelected}
+                SetSelectedCountry={SetSelectedCountry}/>
+            </Route>
+
+            <Route path="/countrypage">
+              <CountryPage
+                countrySelected={countrySelected}
+                SetSelectedDish={SetSelectedDish}
+                favorites={favorites}
+                updateFavorites={updateFavorites}
+              />
+            </Route>
+
+            <Route path="/dishinfo">
+              <Dish
+                dishSelected={dishSelected}
+                favorites={favorites}
+                updateFavorites={updateFavorites}
+              />
+            </Route>
+
+            <Route path="/favorites">
+              <Favorites
+                favorites={favorites}
+                updateFavorites={updateFavorites}
+                SetSelectedDish={SetSelectedDish}
+              />
+            </Route>
+          </Switch>
+
+
+          <Navbar />
+
+        </div>
+        
     </Router>
   );
 }
