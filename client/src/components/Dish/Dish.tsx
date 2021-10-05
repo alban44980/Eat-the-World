@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './Dish.css';
+<<<<<<< HEAD:client/src/components/Dish/Dish.tsx
 import Navbar from './../NavBar/Navbar';
 import RestaurantMap from './../RestaurantMap/RestaurantMap';
 import { getDishImage, getDishInfo } from '../../ApiService';
 import { DishInfo } from '../../ApiService';
+=======
+import Navbar from './Navbar';
+import RestaurantMap from './RestaurantMap';
+import ListRestau from './ListRestau';
+import { getDishImage, getDishInfo } from '../ApiService';
+import { DishInfo } from '../ApiService';
+>>>>>>> alban-dev:client/src/components/Dish.tsx
 
 //interface or type declaration
 
@@ -84,8 +92,9 @@ export default function Dish({
               .slice()
               .replace(/\s/g, '+')}`}
           >
-            https://www.allrecipes.com/search/results/?search=
-            {dishSelected.replace(/\s/g, '+')}
+            {/* https://www.allrecipes.com/search/results/?search=
+            {dishSelected.replace(/\s/g, '+')} */}
+            AllRecipies
           </a>
           <a
             className="recipe-link"
@@ -93,14 +102,15 @@ export default function Dish({
               .slice()
               .replace(/\s/g, '+')}`}
           >
-            https://foodnetwork.co.uk/search/?q=
-            {dishSelected.replace(/\s/g, '+')}
+            {/* https://foodnetwork.co.uk/search/?q=
+            {dishSelected.replace(/\s/g, '+')} */}
+            Foodnetwork
           </a>
         </div>
 
         <div>
-          <h2>Nearby Restaurants</h2>
-          <RestaurantMap dishSelected={dishSelected} />
+          <h2 id="nearby-title">Nearby Restaurants</h2>
+          <ListRestau dishSelected={dishSelected} />
         </div>
       </div>
 

@@ -31,6 +31,8 @@
     "react-leaflet": "^3.2.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-stars-display": "^0.1.24",
+    "simple-rating-stars": "^1.6.0",
     "typescript": "^4.4.3",
     "use-places-autocomplete": "^1.9.4",
     "web-vitals": "^1.1.2"
