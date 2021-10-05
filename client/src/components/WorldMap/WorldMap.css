@@ -49,6 +49,7 @@ html {
   background-color: var(--accent-dark);
   justify-content: center;
   align-content: center;
+
 }
 
 .leaflet-container {
@@ -59,6 +60,7 @@ html {
   padding: 0.1%;
   width: 93%;
   height: 90%;
+
 }
 
 .search-buttons-container {
