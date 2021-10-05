@@ -16,8 +16,8 @@ html {
   }
 
 .nav-bar {
-    width: 85%;
-    height: 60px;
+    width: 90%;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -27,10 +27,10 @@ html {
 }
 
 .iconContainer {
-    height: 37px;
+    height: 40px;
     display: flex;
-    width: 37px;
-    background-color: var(--background-light);
+    width: 40px;
+    background-color: var(--accent-neutral);
     padding: 5px;
     border-radius: 25%;
     border: solid;
@@ -40,10 +40,10 @@ html {
   }
 
 .icon {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     border-radius: 25%;
-    border: solid;
-    border-width: 1px;
+    /* border: solid;
+    border-width: 1px; */
   }
 

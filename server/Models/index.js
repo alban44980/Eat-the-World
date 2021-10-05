@@ -3,7 +3,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const db = {};
 
-const sequelize = new Sequelize('eatworld', 'alban_msd', '', {
+const sequelize = new Sequelize('eatworld', 'williamsukonik', '', {
   host: 'localhost',
   dialect: 'postgres',
   logging: false,
