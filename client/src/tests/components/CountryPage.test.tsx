@@ -1,4 +1,4 @@
-import CountryPage from '../../components/CountryPage';
+import CountryPage from '../../components/CountryPage/CountryPage';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import React from 'react';

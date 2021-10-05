@@ -4,9 +4,9 @@ import './WorldMap.css';
 import { MapContainer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Link, useHistory } from 'react-router-dom';
-import Navbar from './Navbar';
+import Navbar from './../NavBar/Navbar';
 import { StringMappingType } from 'typescript';
-import * as API from '../ApiService';
+import * as API from '../../ApiService';
 
 //Type for data ==> GeoJson.FeatureCollection
 

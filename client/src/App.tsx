@@ -1,10 +1,10 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import WorldMap from './components/WorldMap';
-import CountryPage from './components/CountryPage';
-import Dish from './components/Dish';
-import Favorites from './components/Favorites';
+import WorldMap from './components/WorldMap/WorldMap';
+import CountryPage from './components/CountryPage/CountryPage';
+import Dish from './components/Dish/Dish';
+import Favorites from './components/Favorites/Favorites';
 import TopBar from './components/TopBar/TopBar';
 
 function App() {

@@ -1,4 +1,4 @@
-import Favorites from '../../components/Favorites';
+import Favorites from '../../components/Favorites/Favorites';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
