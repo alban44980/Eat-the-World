@@ -77,7 +77,6 @@ export default function WorldMap({ countrySelected, SetSelectedCountry,}: {count
   const history = useHistory();
 
   return (
-
     <div className="home-container">
       <div className="titleContainer">
           <h1 className="title">Eat the World</h1>
