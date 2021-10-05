@@ -28,7 +28,6 @@ exports.getFoodImage = async (req, res) => {
       });
     const imgObj = imgUrl.data.query.pages;
     const imgLink = Object.values(imgObj)[0].original.source;
-    console.log(imgLink);
 
     res.status(200).send({ imgLink });
   } catch (error) {
@@ -68,7 +67,6 @@ exports.getRestaurants = async (req, res) => {
       console.log(error);
     });
     const restaurants = restaurantData.data.results;
-
     res.status(200).send({ restaurants });
     res.end();
   } catch (error) {
