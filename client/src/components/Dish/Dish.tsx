@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Dish.css';
-import Navbar from './Navbar';
-import RestaurantMap from './RestaurantMap';
-import { getDishImage, getDishInfo } from '../ApiService';
-import { DishInfo } from '../ApiService';
+import Navbar from './../NavBar/Navbar';
+import RestaurantMap from './../RestaurantMap/RestaurantMap';
+import { getDishImage, getDishInfo } from '../../ApiService';
+import { DishInfo } from '../../ApiService';
 
 //interface or type declaration
 

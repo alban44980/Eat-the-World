@@ -1,8 +1,8 @@
 import React from 'react';
 import './CountryPage.css';
 import { useHistory } from 'react-router-dom';
-import foodData from '../data/food.json';
-import Navbar from './Navbar';
+import foodData from './../../data/food.json';
+import Navbar from './../NavBar/Navbar';
 
 export default function CountryPage({
   countrySelected,
