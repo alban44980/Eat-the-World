@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Dish.css';
 import Navbar from './Navbar';
 import RestaurantMap from './RestaurantMap';
+import ListRestau from './ListRestau';
 import { getDishImage, getDishInfo } from '../ApiService';
 import { DishInfo } from '../ApiService';
 
@@ -101,8 +102,8 @@ export default function Dish({
         </div>
 
         <div>
-          <h2>Nearby Restaurants</h2>
-          <RestaurantMap dishSelected={dishSelected} />
+          <h2 id="nearby-title">Nearby Restaurants</h2>
+          <ListRestau dishSelected={dishSelected} />
         </div>
       </div>
 

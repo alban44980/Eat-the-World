@@ -21,7 +21,6 @@ export default function WorldMap({
 }) {
   useEffect(() => {
     API.getCountryData().then((data) => {
-      console.log('FROM USE EFFECT: ', data);
       setData(data);
     });
   }, []);
