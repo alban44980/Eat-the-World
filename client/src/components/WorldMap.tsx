@@ -100,13 +100,17 @@ export default function WorldMap({
       <div className="map-search-container">
         <h2 className="instructions">Select a country and view their food</h2>
 
-        <MapContainer zoom={1.5} center={[41.38, 2.16]}>
-          <GeoJSON
-            style={countryStyle}
-            data={data}
-            onEachFeature={onEachCountry}
-          />
-        </MapContainer>
+        {data.length ? (
+          <MapContainer zoom={1.5} center={[41.38, 2.16]}>
+            <GeoJSON
+              style={countryStyle}
+              data={data}
+              onEachFeature={onEachCountry}
+            />
+          </MapContainer>
+        ) : (
+          <p>LOADING</p>
+        )}
 
         <div
           onClick={() => history.push('/countrypage')}
