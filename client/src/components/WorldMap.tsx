@@ -109,7 +109,23 @@ export default function WorldMap({
             />
           </MapContainer>
         ) : (
-          <p>LOADING</p>
+          <div className="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         )}
 
         <div
