@@ -4,26 +4,20 @@
 
 //create type for ImgLink
 
-
-
-
-
-
 const getCountryData = () => {
-  return fetch('http://localhost:3002/countries', {
-    method: 'GET',
-  })
-  .then((res) => res.json())
-  .then((data) => console.log(data))
-  .catch((err) => console.log(err));
-}
-
+  return (
+    fetch('http://localhost:3002/countries', {
+      method: 'GET',
+    })
+      .then((res) => res.json())
+      // .then((data) => console.log('FROM API SERVICE: ', data))
+      .catch((err) => console.log(err))
+  );
+};
 
 export class DishInfo {
   'imgLink': string;
 }
-
-
 
 const getDishImage = (dish: string): Promise<DishInfo> => {
   return fetch('http://localhost:3002/image', {
@@ -34,9 +28,6 @@ const getDishImage = (dish: string): Promise<DishInfo> => {
     .then((res) => res.json())
     .catch((err) => console.log(err));
 };
-
-
-
 
 const getDishInfo = (dishSelected: string): Promise<DishInfo> => {
   return fetch('http://localhost:3002/info', {

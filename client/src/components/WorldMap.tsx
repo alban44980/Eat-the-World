@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import { Link, useHistory } from 'react-router-dom';
 import Navbar from './Navbar';
 import { StringMappingType } from 'typescript';
-import * as API from '../ApiService'
+import * as API from '../ApiService';
 
 //Type for data ==> GeoJson.FeatureCollection
 
@@ -19,18 +19,14 @@ export default function WorldMap({
   countrySelected: string;
   SetSelectedCountry: React.Dispatch<React.SetStateAction<string>>;
 }) {
-
   useEffect(() => {
-    API.getCountryData()
-    .then(data => {
-      console.log(data);
-      setData(data)
-    })
-    
-    
-  }, [])
+    API.getCountryData().then((data) => {
+      console.log('FROM USE EFFECT: ', data);
+      setData(data);
+    });
+  }, []);
 
-  const [data, setData] = useState<any>([])
+  const [data, setData] = useState<any>([]);
 
   const [filteredCountries, SetFilteredCountries] = useState<string[]>([]);
   const [wordEntered, SetWordEntered] = useState<string>('');
@@ -40,7 +36,7 @@ export default function WorldMap({
     const searchInput: string = event.target.value;
     SetWordEntered(searchInput);
     //Come back to the filter type down there
-    const newFilter: string[] = data.features.filter((value: any) => {
+    const newFilter: string[] = data.filter((value: any) => {
       return value.properties.ADMIN.toLowerCase().includes(
         searchInput.toLowerCase()
       );
@@ -49,11 +45,10 @@ export default function WorldMap({
   };
 
   const randomCountry = () => {
-    const featuresArray = data.features;
+    const featuresArray = data;
     const randomIndex = Math.floor(Math.random() * featuresArray.length);
     SetSelectedCountry(featuresArray[randomIndex].properties.ADMIN);
   };
-
 
   const clearSearchInput = () => {
     SetWordEntered('');
@@ -108,7 +103,7 @@ export default function WorldMap({
         <MapContainer zoom={1.5} center={[41.38, 2.16]}>
           <GeoJSON
             style={countryStyle}
-            data={data.features}
+            data={data}
             onEachFeature={onEachCountry}
           />
         </MapContainer>
