@@ -7,9 +7,13 @@ import Navbar from './../NavBar/Navbar';
 import { StringMappingType } from 'typescript';
 import * as API from '../../ApiService';
 
-
-export default function WorldMap({ countrySelected, SetSelectedCountry,}: {countrySelected: string; SetSelectedCountry: React.Dispatch<React.SetStateAction<string>>;}) {
-  
+export default function WorldMap({
+  countrySelected,
+  SetSelectedCountry,
+}: {
+  countrySelected: string;
+  SetSelectedCountry: React.Dispatch<React.SetStateAction<string>>;
+}) {
   useEffect(() => {
     API.getCountryData().then((data) => {
       setData(data);
@@ -77,34 +81,10 @@ export default function WorldMap({ countrySelected, SetSelectedCountry,}: {count
 
   return (
     <div className="home-container">
-<<<<<<< HEAD:client/src/components/WorldMap/WorldMap.tsx
       <div className="titleContainer">
-          <h1 className="title">Eat the World</h1>
+        <h1 className="title">Eat the World</h1>
       </div>
       <div className="map-container">
-          {data.length ? (
-            <MapContainer zoom={1.5} center={[41.38, 2.16]}>
-              <GeoJSON
-                style={countryStyle}
-                data={data}
-                onEachFeature={onEachCountry}
-              />
-            </MapContainer>
-          ) : (
-            <p>LOADING</p>
-          )}
-      </div>
-
-
-
-      <div className="search-buttons-container">
-        <div onClick={() => history.push('/countrypage')} className="select-country" >
-            <h2 className="select-country-text"> {countrySelected} </h2>
-=======
-      <h1>Eat the World</h1>
-      <div className="map-search-container">
-        <h2 className="instructions">Select a country and view their food</h2>
-
         {data.length ? (
           <MapContainer zoom={1.5} center={[41.38, 2.16]}>
             <GeoJSON
@@ -189,20 +169,18 @@ export default function WorldMap({ countrySelected, SetSelectedCountry,}: {count
             </div>
           </div>
         )}
+      </div>
 
+      <div className="search-buttons-container">
         <div
           onClick={() => history.push('/countrypage')}
           className="select-country"
         >
-          <h2 className="select-country">{countrySelected + '!'}</h2>
->>>>>>> alban-dev:client/src/components/WorldMap.tsx
+          <h2 className="select-country-text"> {countrySelected} </h2>
         </div>
-
-
 
         <div className="search-container">
           <div className="search">
-
             <div className="searchInputs">
               <input
                 className="search-box"
@@ -231,7 +209,6 @@ export default function WorldMap({ countrySelected, SetSelectedCountry,}: {count
                 })}
               </div>
             )}
-
           </div>
 
           <Link to="/countrypage" className="view-button-container">
@@ -239,7 +216,6 @@ export default function WorldMap({ countrySelected, SetSelectedCountry,}: {count
               <p className="button-label">View Food</p>
             </div>
           </Link>
-
         </div>
 
         <div>
@@ -255,11 +231,7 @@ export default function WorldMap({ countrySelected, SetSelectedCountry,}: {count
             Random!
           </button>
         </div>
-
-
       </div>
-
-
     </div>
   );
 }

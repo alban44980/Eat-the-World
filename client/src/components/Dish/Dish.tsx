@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Dish.css';
-<<<<<<< HEAD:client/src/components/Dish/Dish.tsx
 import Navbar from './../NavBar/Navbar';
 import RestaurantMap from './../RestaurantMap/RestaurantMap';
+import ListRestau from '../ListRestau';
 import { getDishImage, getDishInfo } from '../../ApiService';
 import { DishInfo } from '../../ApiService';
-=======
-import Navbar from './Navbar';
-import RestaurantMap from './RestaurantMap';
-import ListRestau from './ListRestau';
-import { getDishImage, getDishInfo } from '../ApiService';
-import { DishInfo } from '../ApiService';
->>>>>>> alban-dev:client/src/components/Dish.tsx
 
 //interface or type declaration
 
@@ -113,7 +106,6 @@ export default function Dish({
           <ListRestau dishSelected={dishSelected} />
         </div>
       </div>
-
     </div>
   );
 }
