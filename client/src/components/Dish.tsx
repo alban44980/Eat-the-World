@@ -84,8 +84,9 @@ export default function Dish({
               .slice()
               .replace(/\s/g, '+')}`}
           >
-            https://www.allrecipes.com/search/results/?search=
-            {dishSelected.replace(/\s/g, '+')}
+            {/* https://www.allrecipes.com/search/results/?search=
+            {dishSelected.replace(/\s/g, '+')} */}
+            AllRecipies
           </a>
           <a
             className="recipe-link"
@@ -93,8 +94,9 @@ export default function Dish({
               .slice()
               .replace(/\s/g, '+')}`}
           >
-            https://foodnetwork.co.uk/search/?q=
-            {dishSelected.replace(/\s/g, '+')}
+            {/* https://foodnetwork.co.uk/search/?q=
+            {dishSelected.replace(/\s/g, '+')} */}
+            Foodnetwork
           </a>
         </div>
 

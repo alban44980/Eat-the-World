@@ -6,6 +6,7 @@ import {
   InfoWindow,
 } from '@react-google-maps/api';
 import './RestaurantMap.css';
+import { ContactSupportOutlined } from '@material-ui/icons';
 
 declare global {
   interface Window {
@@ -86,7 +87,10 @@ export default function RestaurantMap({
       body: JSON.stringify({ cuisine: dishSelected }),
     })
       .then((res) => res.json())
-      .then((res) => SetRestaurantSuggestions(res.restaurants))
+      .then((data) => {
+        console.log(data);
+        SetRestaurantSuggestions(data.restaurants);
+      })
       .catch((err) => console.log(err));
   }
 
@@ -117,9 +121,9 @@ export default function RestaurantMap({
                 position={{ lat: markerLat, lng: markerLng }}
                 icon={{
                   url: 'https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../assets/preview/2018/png/iconmonstr-eat-8.png&r=0&g=0&b=0',
-                  scaledSiz: new window.google.maps.Size(20, 20),
+                  scaledSize: new window.google.maps.Size(25, 25),
                   origin: new window.google.maps.Point(0, 0),
-                  anchor: new window.google.maps.Point(15, 15),
+                  // anchor: new window.google.maps.Point(15, 15),
                 }}
                 onClick={() => {
                   setSelected(obj);
