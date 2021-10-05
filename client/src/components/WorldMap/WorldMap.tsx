@@ -76,7 +76,6 @@ export default function WorldMap({ countrySelected, SetSelectedCountry,}: {count
   const history = useHistory();
 
   return (
-
     <div className="home-container">
 <<<<<<< HEAD:client/src/components/WorldMap/WorldMap.tsx
       <div className="titleContainer">
