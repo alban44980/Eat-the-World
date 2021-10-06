@@ -1,7 +1,4 @@
-@import "./../../util/colors.css";
-
-
-
+@import './../../util/colors.css';
 
 html {
   box-sizing: border-box;
@@ -34,7 +31,6 @@ html {
   display: flex;
   flex-direction: row;
   margin-bottom: 40px;
-
 }
 
 .header-text {
@@ -42,7 +38,6 @@ html {
   font-weight: 600;
   align-items: center;
 }
-
 
 .pic-div {
   display: flex;
@@ -97,10 +92,7 @@ p {
 
 h2 {
   text-align: center;
-  
 }
-
-
 
 .recipes {
   display: flex;

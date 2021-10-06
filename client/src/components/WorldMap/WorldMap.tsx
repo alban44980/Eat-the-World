@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import { Link, useHistory } from 'react-router-dom';
 import Navbar from './../NavBar/Navbar';
 import { StringMappingType } from 'typescript';
+import ChickLoading from '../ChickLoading/ChickLoading';
 import * as API from '../../ApiService';
 
 export default function WorldMap({
@@ -79,6 +80,12 @@ export default function WorldMap({
 
   const history = useHistory();
 
+  function goToCountry() {
+    return countrySelected.length > 0
+      ? history.push('/countrypage')
+      : SetSelectedCountry('Click a fucking country!');
+  }
+
   return (
     <div className="home-container">
       <div className="titleContainer">
@@ -94,88 +101,12 @@ export default function WorldMap({
             />
           </MapContainer>
         ) : (
-          <div className="scene">
-            <div className="sky">
-              <div className="sky__cloud-group">
-                <div className="sky__cloud">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-                <div className="sky__cloud">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-                <div className="sky__cloud sky__cloud--small">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-                <div className="sky__cloud sky__cloud--small">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-                <div className="sky__cloud sky__cloud--small">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-              </div>
-              <div className="sky__cloud-group">
-                <div className="sky__cloud">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-                <div className="sky__cloud">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-                <div className="sky__cloud sky__cloud--small">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-                <div className="sky__cloud sky__cloud--small">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-                <div className="sky__cloud sky__cloud--small">
-                  <div className="sky__cloud--bubbles"></div>
-                </div>
-              </div>
-            </div>
-            <div className="bird">
-              <div className="bird__head">
-                <div className="bird__head--hairs"></div>
-                <div className="bird__head--eye"></div>
-                <div className="bird__head--spot"></div>
-                <div className="bird__head--beak"></div>
-                <div className="bird__head--reflection">
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                  <div className="bird__head--reflection--dot"></div>
-                </div>
-              </div>
-              <div className="bird__body"></div>
-              <div className="bird__wing"></div>
-              <div className="bird__legs">
-                <div className="bird__leg bird__leg--left"></div>
-                <div className="bird__leg bird__leg--right"></div>
-              </div>
-            </div>
-          </div>
+          <ChickLoading />
         )}
       </div>
 
       <div className="search-buttons-container">
-        <div
-          onClick={() => history.push('/countrypage')}
-          className="select-country"
-        >
+        <div className="select-country">
           <h2 className="select-country-text"> {countrySelected} </h2>
         </div>
 
@@ -211,11 +142,16 @@ export default function WorldMap({
             )}
           </div>
 
-          <Link to="/countrypage" className="view-button-container">
-            <div className="view-button">
-              <p className="button-label">View Food</p>
-            </div>
-          </Link>
+          {/* <Link to="/countrypage" className="view-button-container"> */}
+
+          <div
+            onClick={() => {
+              goToCountry();
+            }}
+            className="view-button-container"
+          >
+            <p className="button-label">View Food</p>
+          </div>
         </div>
 
         <div>

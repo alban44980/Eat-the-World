@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Dish.css';
 import Navbar from './../NavBar/Navbar';
 import RestaurantMap from './../RestaurantMap/RestaurantMap';
-import ListRestau from '../ListRestau';
+import ListRestau from '../ListRestau/ListRestau';
 import { getDishImage, getDishInfo } from '../../ApiService';
 import { DishInfo } from '../../ApiService';
 
