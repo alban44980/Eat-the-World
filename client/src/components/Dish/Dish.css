@@ -67,7 +67,9 @@ img {
   border-width: 10px;
   border-color: green;
   border-style: solid;
-  padding-bottom: 80px;
+  padding-bottom: 150px;
+  margin-bottom: 120px;
+  height: 500px;
 }
 
 p {
@@ -87,7 +89,7 @@ p {
   overflow-y: auto;
   height: fit-content;
   max-height: 43.5vh;
-  font-size: 5px;
+  font-size: 14px;
 }
 
 h2 {
