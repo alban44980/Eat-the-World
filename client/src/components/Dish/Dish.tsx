@@ -34,7 +34,9 @@ export default function Dish({
 
   return (
     <div className="dish-main">
-      <h1>{dishSelected}</h1>
+      <div className="dish-header">
+        <div className="header-text">{dishSelected}</div>
+      </div>
 
       <div className="pic-div">
         <img src={dishImg} alt={dishSelected} />

@@ -10,7 +10,6 @@ exports.getCountryData = async (req, res) => {
       country.properties = await JSON.parse(country.properties);
       country.geometry = await JSON.parse(country.geometry);
     }
-<<<<<<< HEAD
     res.send(countries)
   }
   catch(err) {}
@@ -21,12 +20,6 @@ exports.getCountryData = async (req, res) => {
 
 
 
-=======
-    // console.log(countries)
-    res.send(countries);
-  } catch (err) {}
-};
->>>>>>> alban-dev
 
 exports.getFoodImage = async (req, res) => {
   try {
