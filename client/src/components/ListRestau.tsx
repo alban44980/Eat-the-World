@@ -1,3 +1,4 @@
+import { ContactSupportOutlined } from '@material-ui/icons';
 import React, { useState, useEffect } from 'react';
 //@ts-ignore
 import Stars from 'simple-rating-stars';
@@ -83,11 +84,47 @@ function ListRestau({ dishSelected }: { dishSelected: string }) {
     let r = 6371;
 
     // calculate the result
-    return (c * r).toFixed(2);
+    return Number((c * r).toFixed(2));
+  }
+
+  function filterByDistance() {
+    console.log('filterbydistance function running');
+    SetRestaurantSuggestions((previous) =>
+      [...previous].sort((a, b) => {
+        const dist1 = getDistance(
+          a.geometry.location.lat,
+          lat,
+          a.geometry.location.lng,
+          lng
+        );
+        const dist2 = getDistance(
+          b.geometry.location.lat,
+          lat,
+          b.geometry.location.lng,
+          lng
+        );
+        return dist1 - dist2;
+      })
+    );
+  }
+
+  function filterByRating() {
+    console.log('filterbyrating function running');
+    SetRestaurantSuggestions((previous) => {
+      console.log(previous);
+      const newState = [...previous].sort((a, b) => b.rating - a.rating);
+      console.log('new state ==> ', newState);
+      return newState;
+    });
   }
 
   return (
     <div className="restaurant-container">
+      <div className="btn-container">
+        <button onClick={() => filterByDistance()}>By distance</button>
+        <button onClick={() => filterByRating()}>By ratings</button>
+      </div>
+
       {restaurantSuggestions.map((suggestion) => {
         const restauLat = suggestion.geometry.location.lat;
         const restauLong = suggestion.geometry.location.lng;

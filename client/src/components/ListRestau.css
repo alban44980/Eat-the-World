@@ -33,3 +33,9 @@
   position: relative;
   bottom: 12px;
 }
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
