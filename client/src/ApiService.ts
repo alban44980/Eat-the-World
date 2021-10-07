@@ -1,12 +1,16 @@
 // const BASE_URL = 'http://localhost:3002';
 
+import { ContactSupportOutlined } from '@material-ui/icons';
+
 // const apiService = {};
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+console.log('BASE URL HELLO ', process.env.REACT_APP_BASE_URL);
 //create type for ImgLink
 
 const getCountryData = () => {
   return (
-    fetch('http://localhost:3002/countries', {
+    fetch(`${BASE_URL}/countries`, {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -20,7 +24,7 @@ export class DishInfo {
 }
 
 const getDishImage = (dish: string): Promise<DishInfo> => {
-  return fetch('http://localhost:3002/image', {
+  return fetch(`${BASE_URL}/image`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ dish: dish }),
@@ -30,7 +34,7 @@ const getDishImage = (dish: string): Promise<DishInfo> => {
 };
 
 const getDishInfo = (dishSelected: string): Promise<DishInfo> => {
-  return fetch('http://localhost:3002/info', {
+  return fetch(`${BASE_URL}/info`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ dish: dishSelected }),
