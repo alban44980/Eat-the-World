@@ -5,10 +5,8 @@ import 'leaflet/dist/leaflet.css';
 import { useHistory } from 'react-router-dom';
 import ChickLoading from '../ChickLoading/ChickLoading';
 import * as API from '../../ApiService';
-import "./../../util/colors.css";
+import './../../util/colors.css';
 import { rgbToHex } from '@material-ui/core';
-
-
 
 export default function WorldMap({
   countrySelected,
@@ -86,7 +84,7 @@ export default function WorldMap({
   function goToCountry() {
     return countrySelected.length > 0
       ? history.push('/countrypage')
-      : SetSelectedCountry('Click a fucking country!');
+      : SetSelectedCountry('Click a country!');
   }
 
   return (
