@@ -15,8 +15,8 @@
   --background-light: rgba(255, 136, 136, 1);
   --background-dark:  rgba(224, 92, 109, 1);
   --accent-bright: rgba(232, 230, 135, 1);
-  --accent-dark: rgb(131, 24, 24);
+  /* --accent-dark: rgb(131, 24, 24); */
+  --accent-dark: rgb(116, 3, 3);
   --accent-neutral:  rgba(230, 230, 230, 1);
-  /* --blue:  rgba(41, 120, 232, 1); */
 }
 

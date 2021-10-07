@@ -24,9 +24,7 @@ export default function CountryPage({
     <div className="country-page-container">
       <div className="header-container">
         <div className="page-title">{countrySelected}</div>
-        <div className="page-description">
-          Local delicacies in {countrySelected}:
-        </div>
+  
       </div>
 
       <div className="dish-list">

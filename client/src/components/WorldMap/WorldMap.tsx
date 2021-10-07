@@ -5,6 +5,10 @@ import 'leaflet/dist/leaflet.css';
 import { useHistory } from 'react-router-dom';
 import ChickLoading from '../ChickLoading/ChickLoading';
 import * as API from '../../ApiService';
+import "./../../util/colors.css";
+import { rgbToHex } from '@material-ui/core';
+
+
 
 export default function WorldMap({
   countrySelected,
@@ -51,7 +55,8 @@ export default function WorldMap({
     color: string;
     weight: number;
   } = {
-    fillColor: 'red',
+    fillColor: 'rgba(116, 3, 3, 1)',
+    // fillColor: 'yellow',
     fillOpacity: 0.2,
     color: 'black',
     weight: 0.5,

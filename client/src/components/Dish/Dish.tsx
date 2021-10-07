@@ -5,6 +5,7 @@ import { getDishImage, getDishInfo } from '../../ApiService';
 import { DishInfo } from '../../ApiService';
 import WalkingFood from '../WalkingFoodLottie/WalkingFood';
 import home from '../WalkingFoodLottie/Lottie.json';
+import defaultImage from '../../data/default-food.jpeg'
 
 type Props = {
   dishSelected: string;
@@ -29,7 +30,7 @@ export default function Dish({
         setDishInfo(info.imgLink.slice().replace(/(<([^>]+)>)/gi, ''));
         setDishImg(image.imgLink);
         setIsLoaded(true);
-      }, 3000);
+      }, 2800);
     }
     fetchFunc();
   }, [dishSelected]);
@@ -37,23 +38,27 @@ export default function Dish({
   return (
     <div className="dish-main">
       {isLoaded ? (
-        <div>
+        <div className="page-wrapper">
           <div className="dish-header">
             <div className="header-text">{dishSelected}</div>
           </div>
 
           <div className="pic-div">
-            <img src={dishImg} alt={dishSelected} />
-          </div>
+            <div>
 
-          <div className="info-container">
+                {
+                  dishImg ? 
+                  <img src={dishImg} alt={dishSelected} /> :
+                  <img src={defaultImage} alt={dishSelected} />
+                } 
+
             <div
               className="add-remove-favorite"
               onClick={() => {
                 updateFavorites(dishSelected);
               }}
             >
-              Add/Remove from Favorites
+
               <div className="favorites-selector">
                 {favorites.includes(dishSelected) ? (
                   <svg
@@ -76,39 +81,54 @@ export default function Dish({
                 )}
               </div>
             </div>
+                
+            </div>
+
+            
+      
+            
+            
+          </div>
+
+          <div className="info-container">
+  
 
             <div className="dish-info">
-              <h2>About {dishSelected}</h2>
-              <p>{dishInfo}</p>
+              <h2>About</h2>
+              {
+                dishInfo.length ? 
+                <p className="dish-info-text">{dishInfo}</p> : 
+                <p className="dish-info-text">No info to display 🙁</p>
+              }
+
             </div>
+
+
 
             <div className="recipes">
               <h2>Recipes</h2>
-
-              <a
-                className="recipe-link"
-                href={`https://www.allrecipes.com/search/results/?search=${dishSelected
-                  .slice()
-                  .replace(/\s/g, '+')}`}
-              >
-                {/* https://www.allrecipes.com/search/results/?search=
-            {dishSelected.replace(/\s/g, '+')} */}
-                AllRecipies
-              </a>
-              <a
-                className="recipe-link"
-                href={`https://foodnetwork.co.uk/search/?q=${dishSelected
-                  .slice()
-                  .replace(/\s/g, '+')}`}
-              >
-                {/* https://foodnetwork.co.uk/search/?q=
-            {dishSelected.replace(/\s/g, '+')} */}
-                Foodnetwork
-              </a>
+              <div className="links-container">
+                <a
+                  className="recipe-link"
+                  href={`https://www.allrecipes.com/search/results/?search=${dishSelected
+                    .slice()
+                    .replace(/\s/g, '+')}`}
+                >
+                  All Recipies
+                </a>
+                <a
+                  className="recipe-link"
+                  href={`https://foodnetwork.co.uk/search/?q=${dishSelected
+                    .slice()
+                    .replace(/\s/g, '+')}`}
+                >
+                  Food Network
+                </a>
+              </div>
             </div>
 
-            <div>
-              <h2 id="nearby-title">Nearby Restaurants</h2>
+            <div className="nearby-container">
+              <h2 id="nearby-title"> Find a Restaurant </h2>
               <ListRestau dishSelected={dishSelected} />
             </div>
           </div>

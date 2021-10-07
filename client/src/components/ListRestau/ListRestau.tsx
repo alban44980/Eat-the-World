@@ -96,33 +96,37 @@ function ListRestau({ dishSelected }: { dishSelected: string }) {
   return (
     <div className="restaurant-container">
       <div className="btn-container">
-        <button onClick={() => filterByDistance()}>By distance</button>
-        <button onClick={() => filterByRating()}>By ratings</button>
+  
+        <button className="filter-button" onClick={() => filterByDistance()}>Distance</button>
+        <button className="filter-button" onClick={() => filterByRating()}>Rating</button>
       </div>
 
-      {restaurantSuggestions.map((suggestion) => {
-        const restauLat = suggestion.geometry.location.lat;
-        const restauLong = suggestion.geometry.location.lng;
-        const distance = getDistance(restauLat, lat, restauLong, lng);
-        return (
-          <div className="restaurant-item">
-            <div className="restau-top">
-              <p>{suggestion.name}</p>
-              <p className="restau-distance">{distance} km</p>
+      <div className="restaurant-list">
+        {restaurantSuggestions.map((suggestion) => {
+          const restauLat = suggestion.geometry.location.lat;
+          const restauLong = suggestion.geometry.location.lng;
+          const distance = getDistance(restauLat, lat, restauLong, lng);
+          return (
+            <div className="restaurant-item">
+              <div className="restau-top">
+                <p>{suggestion.name}</p>
+                <p className="restau-distance">{distance} km</p>
+              </div>
+              <div className="restau-bottom">
+                <Stars
+                  stars={Math.round(suggestion.rating)}
+                  outOf={5}
+                  full={'#d00'}
+                  empty={'#E1F1FF'}
+                  stroke={'#369'}
+                />
+                <p className="restau-rating">{suggestion.rating}</p>
+              </div>
             </div>
-            <div className="restau-bottom">
-              <Stars
-                stars={Math.round(suggestion.rating)}
-                outOf={5}
-                full={'#d00'}
-                empty={'#E1F1FF'}
-                stroke={'#369'}
-              />
-              <p className="restau-rating">{suggestion.rating}</p>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+
     </div>
   );
 }

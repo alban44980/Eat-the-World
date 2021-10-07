@@ -9,24 +9,35 @@ html {
   width: 100vw;
   display: flex;
   position: fixed;
-  padding-top: 40px;
-  padding-bottom: 20px;
   flex-direction: column;
   align-items: center;
+  align-content: center;
   overflow: hidden;
   overflow-y: scroll;
 }
 
+
+.page-wrapper {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+
+
 .dish-header {
-  height: 130px;
+  height: 100px;
   width: 85vw;
   background-color: var(--accent-dark);
   border-radius: 15px;
-  border-width: 10px;
+  border-width: 2px;
   border-color: black;
   border-style: solid;
   color: white;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: row;
@@ -35,28 +46,55 @@ html {
 
 .header-text {
   font-size: 30px;
-  font-weight: 600;
-  align-items: center;
+  font-weight: 550;
+  text-align: center;
 }
 
 .pic-div {
-  display: flex;
+  display: flex; 
   justify-content: center;
-  border-width: 10px;
-  border-color: yellow;
+  align-items: center;
+  align-content: center;
+  border-width: 1px;
+  border-color: black;
   border-style: solid;
-  margin-bottom: 40px;
-  height: 250px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  height: 230px;
   width: 85vw;
+  background-color: var(--accent-neutral);
 }
 
 img {
-  margin: 0 auto;
-  width: 60vw;
-  align-self: center;
+  width: 280px;
   border-radius: 15px;
   opacity: 1;
   max-height: 180px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  align-self: center;
+  justify-self: center;
+}
+
+.add-remove-favorite {
+  display: flex;
+  background-color: var(--accent-neutral);
+  opacity: .9;
+  border-color: black;
+  border-style: solid;
+  border-width: 1.5px;
+  border-radius: 15px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: larger;
+  font-weight: 700;
+  position: absolute;
+  z-index: 2;
+  top: 215px;
+  right: 54px;
 }
 
 .info-container {
@@ -64,13 +102,15 @@ img {
   flex-direction: column;
   align-items: center;
   margin-bottom: 8vh;
-  border-width: 10px;
+  /* border-width: 10px;
   border-color: green;
-  border-style: solid;
-  padding-bottom: 150px;
-  margin-bottom: 120px;
-  height: 500px;
+  border-style: solid; */
+  padding-bottom: 0px;
+  margin-bottom: 30px;
+  height: 1300px;
 }
+
+
 
 p {
   line-height: 120%;
@@ -80,51 +120,77 @@ p {
 }
 
 .dish-info {
-  border-radius: 1rem;
-  border-color: darkgray;
+  border-radius: 15px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
   width: 80vw;
-  background-color: white;
-  opacity: 0.9;
+  background-color: var(--accent-neutral);
+  opacity: 1;
   margin-top: 1rem;
   overflow-y: auto;
   height: fit-content;
   max-height: 43.5vh;
-  font-size: 14px;
+  min-height: 250px;
+  padding: 10px;
+  margin-bottom: 30px;
 }
 
 h2 {
   text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
 }
 
+.dish-info-text {
+  font-weight: 400;
+  line-height: 22px;
+  font-size: 14px;
+}
+
+
+
 .recipes {
+  border-radius: 15px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  width: 80vw;
+  background-color: var(--accent-neutral);
+  opacity: 1;
+  min-height: 170px;
+  padding: 10px;
+  margin-bottom: 30px;
+  align-content: center;
+  justify-content: center;
+}
+
+.links-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .recipe-link {
-  width: 80vw;
-  background-color: white;
-  opacity: 0.9;
-  border-radius: 1rem;
-  margin: 0.3rem;
+  background-color: var(--accent-dark);
+  color: white;
   text-align: center;
-  font-size: x-small;
-  padding-bottom: 0.2rem;
+  font-size: 14px;
+  width: 95px;
+  padding: 15px;
+  text-decoration: none;
+  border-radius: 15px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
 }
 
-.add-remove-favorite {
-  display: flex;
-  background-color: white;
-  opacity: 0.8;
-  border-radius: 1rem;
-  width: 76vw;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  font-size: larger;
-  font-weight: 700;
+.nearby-container {
+  height: 600px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 15px;
+  background-color: var(--accent-neutral);
 }
+
