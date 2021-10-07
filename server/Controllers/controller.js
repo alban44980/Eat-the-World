@@ -10,16 +10,9 @@ exports.getCountryData = async (req, res) => {
       country.properties = await JSON.parse(country.properties);
       country.geometry = await JSON.parse(country.geometry);
     }
-    res.send(countries)
-  }
-  catch(err) {}
-}
-
-
-
-
-
-
+    res.send(countries);
+  } catch (err) {}
+};
 
 exports.getFoodImage = async (req, res) => {
   try {
@@ -64,10 +57,11 @@ exports.getFoodInfo = async (req, res) => {
 
 exports.getRestaurants = async (req, res) => {
   try {
+    console.log('getRestaurants running from BE');
     const lat = 41.38;
     const lng = 2.16;
     const selectedCuisine = req.body.cuisine.replace((/\s/g, '+'));
-    const myApi = env.APP_GOOGLE_MAPS_API_KEY;
+    const myApi = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
     const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&types=restaurant&radius=2000&keyword=${selectedCuisine},&key=${myApi}`;
     const restaurantData = await axios.get(url).catch((error) => {
       console.log(error);
