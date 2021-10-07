@@ -3,11 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 
-
-
-
 it('should call onDishClick', () => {
-  const countrySelected = 'Greenland'
+  const countrySelected = 'Greenland';
   const SetSelectedDish = jest.fn();
   const dishSelected = 'Kiviak';
   const favorites = ['Fish and Chips'];
