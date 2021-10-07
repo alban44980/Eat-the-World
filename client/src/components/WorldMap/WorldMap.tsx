@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './WorldMap.css';
 import { MapContainer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Link, useHistory } from 'react-router-dom';
-import Navbar from './../NavBar/Navbar';
-import { StringMappingType } from 'typescript';
+import { useHistory } from 'react-router-dom';
 import ChickLoading from '../ChickLoading/ChickLoading';
 import * as API from '../../ApiService';
 
@@ -141,9 +139,6 @@ export default function WorldMap({
               </div>
             )}
           </div>
-
-          {/* <Link to="/countrypage" className="view-button-container"> */}
-
           <div
             onClick={() => {
               goToCountry();

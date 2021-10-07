@@ -6,7 +6,6 @@ import {
   InfoWindow,
 } from '@react-google-maps/api';
 import './RestaurantMap.css';
-import { ContactSupportOutlined } from '@material-ui/icons';
 
 declare global {
   interface Window {
@@ -95,7 +94,6 @@ export default function RestaurantMap({
       .catch((err) => console.log(err));
   }
 
-  //help request for below
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY || '',
     libraries,

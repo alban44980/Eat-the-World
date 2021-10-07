@@ -1,7 +1,6 @@
 import React from 'react';
 import './Favorites.css';
 import { useHistory } from 'react-router-dom';
-import Navbar from './../NavBar/Navbar';
 
 export default function Favorites({
   favorites,
@@ -82,7 +81,6 @@ export default function Favorites({
           })}
         </div>
       )}
-
     </div>
   );
 }
