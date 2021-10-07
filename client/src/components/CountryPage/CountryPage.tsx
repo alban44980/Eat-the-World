@@ -35,7 +35,10 @@ export default function CountryPage({
             return val.dish.map((dish) => {
               return (
                 <div className="dish-item-container">
-                  <div className="dish-item" onClick={() => onDishClick(dish)}>
+                  <div 
+                    className="dish-item" 
+                    data-testid="DishSelectButton2"
+                    onClick={() => onDishClick(dish)}>
                     <div
                       className="food-container"
                       onClick={() => history.push('/dishinfo')}

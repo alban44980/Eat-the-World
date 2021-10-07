@@ -4,6 +4,8 @@ import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 
+
+
 it('should call onDishClick with the correct input', () => {
   const SetSelectedDish = jest.fn();
   const favorites = ['Fish and chips'];
@@ -19,9 +21,6 @@ it('should call onDishClick with the correct input', () => {
     </BrowserRouter>
   );
 
-  // click on button
   fireEvent.click(screen.getByTestId('DishSelectButton'));
-
-  // check if setSelectedDish was called
   expect(SetSelectedDish.mock.calls.length).toBe(1);
 });
