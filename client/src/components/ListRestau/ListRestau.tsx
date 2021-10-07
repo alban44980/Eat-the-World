@@ -4,24 +4,17 @@ import React, { useState, useEffect } from 'react';
 import Stars from 'simple-rating-stars';
 import './ListRestau.css';
 import { getDistance } from './ListRestauFunctions';
+import { getRestaurants, Restaurant } from '../../ApiService';
 
 function ListRestau({ dishSelected }: { dishSelected: string }) {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
     getLocation();
-    getRestaurants();
+    getRestaurants(dishSelected).then((data) => {
+      console.log(data.restaurants);
+      SetRestaurantSuggestions(data.restaurants);
+    });
   }, []);
-
-  interface Restaurant {
-    geometry: {
-      location: {
-        lng: number;
-        lat: number;
-      };
-    };
-    name: string;
-    rating: number;
-  }
 
   const [currentPosition, setCurrentPosition] = useState({});
   const [restaurantSuggestions, SetRestaurantSuggestions] = useState<
@@ -30,20 +23,6 @@ function ListRestau({ dishSelected }: { dishSelected: string }) {
   const [selected, setSelected] = useState<Restaurant | null>(null);
   const [lat, setLat] = useState<number>(41.38);
   const [lng, setLng] = useState<number>(2.16);
-
-  function getRestaurants() {
-    fetch('http://localhost:3002/restaurants', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ cuisine: dishSelected }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        SetRestaurantSuggestions(data.restaurants);
-      })
-      .catch((err) => console.log(err));
-  }
 
   const success = (position: {
     coords: { latitude: number; longitude: number };
