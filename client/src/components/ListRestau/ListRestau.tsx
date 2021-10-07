@@ -11,7 +11,7 @@ function ListRestau({ dishSelected }: { dishSelected: string }) {
     navigator.geolocation.getCurrentPosition(success);
     getLocation();
     getRestaurants(dishSelected).then((data) => {
-      console.log(data.restaurants);
+      console.log(data);
       SetRestaurantSuggestions(data.restaurants);
     });
   }, []);
@@ -75,9 +75,12 @@ function ListRestau({ dishSelected }: { dishSelected: string }) {
   return (
     <div className="restaurant-container">
       <div className="btn-container">
-  
-        <button className="filter-button" onClick={() => filterByDistance()}>Distance</button>
-        <button className="filter-button" onClick={() => filterByRating()}>Rating</button>
+        <button className="filter-button" onClick={() => filterByDistance()}>
+          Distance
+        </button>
+        <button className="filter-button" onClick={() => filterByRating()}>
+          Rating
+        </button>
       </div>
 
       <div className="restaurant-list">
@@ -105,7 +108,6 @@ function ListRestau({ dishSelected }: { dishSelected: string }) {
           );
         })}
       </div>
-
     </div>
   );
 }
