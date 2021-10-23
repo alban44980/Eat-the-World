@@ -9,4 +9,8 @@ To run the project :
     - no API key required for wikipedia
 - Map at beginnning is generated using react-leaflet.
 - Map at the back is using Google Maps API.
-- Hope you enjoy the app, any feedback/PR is appreciated !
+
+Hope you enjoy the app, any feedback/PR is appreciated !
+
+
+Stack: React, Express, Node, PostgresQL, Typescript.
